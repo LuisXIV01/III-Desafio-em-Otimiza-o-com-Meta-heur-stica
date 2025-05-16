@@ -1,5 +1,16 @@
 # III Desafio em Otimização com Meta-heurística
 
+# Sumário
+
+- [1. Como é formado o vetor‑solução](#1-como-é-formado-o-vetor‑solução)
+- [2. Função de avaliação (`_fitness`)](#2-função-de-avaliação-_fitness)
+- [3. Método principal (`solve`)](#3-método-principal-solve)
+- [4. Algoritmo Genético](#4-algoritmo-genético)
+    - [Funcionamento do Algoritmo Genético (`_ga`)](#funcionamento-do-algoritmo-genético-_ga)
+    - [Operadores Genéticos Usados](#operadores-genéticos-usados)
+    - [Critério de Parada](#critério-de-parada)
+    - [Testes](#testes)
+
 ## 1. Como é formado o vetor‑solução
 
 ```text
@@ -329,3 +340,64 @@ O algoritmo termina ao alcançar o número máximo de gerações (`IT_MAX`) e re
 | ta78      | [None…None]    | 90.15     | ⏱️ Makespan: 8097    |
 | ta79      | [None…None]    | 85.87     | ⏱️ Makespan: 8534    |
 | ta80      | [None…None]    | 123.03    | ⏱️ Makespan: 8398    |
+
+---
+
+## 5. Tabu Search
+| Parâmetro       | Significado                         |
+| --------------- | ----------------------------------- |
+| `BAN`           | Valor de bloqueio (tabu)            |
+| `MAX_ITER`      | Nº máximo de iterações              |
+> Esses valores são ajustados conforme o tamanho/complexidade da instância.
+
+### Funcionamento do `TS`
+Funcionamento do Tabu Search (tabu_search)
+O Tabu Search (TS) é uma meta-heurística baseada em exploração local, que utiliza memória de curto prazo para evitar ciclos e diversificar a busca por boas soluções.
+
+**Passos principais do TS implementado:**
+
+1. **Geração da solução inicial:**
+
+    Cria uma permutação aleatória do vetor base usando `first_solution()`.
+    
+    Essa solução serve tanto como a “corrente” quanto como “melhor até agora” (`current_solution` e `best_solution`).
+
+2. **Avaliação e inicialização:**
+
+    Calcula o fitness (*makespan*) da solução corrente via `fitness()`.
+
+    Define `fitness_current` e `fitness_best` com esse valor.
+
+    Inicializa a grade tabu (`tabu_grid`) marcando todos os movimentos como permitidos.
+
+    Cria uma fila (`list_grid`) para armazenar movimentos e seus tempos de banimento.
+
+3. **Geração de vizinhança:**
+
+    Em cada iteração, chama `get_neighbors()` para obter todos os vizinhos por swap adjacente e as posições trocadas correspondentes.
+
+4. **Seleção de movimento:**
+
+    Para cada vizinho, avalia seu fitness:
+
+    Movimento não–tabu e melhora sobre fitness_current: aceita imediatamente, marca o swap como tabu e adiciona (x, y, ban) em `list_grid`.
+
+    Movimento tabu, mas que melhora `fitness_current` (critérios de aspiração): aceita mesmo assim e repete o processo de marcação.
+
+    Caso não seja aceito, armazena em `aux_neighbors` para possível aceitação de solução pior.
+
+5. **Aceitação de solução pior (diversificação):**
+
+    Se nenhum movimento foi aceito e um número aleatório em `[0,1)` excede 0.70, escolhe o melhor candidato de aux_neighbors (o “menos ruim”) e o aceita, marcando-o tabu.
+
+6. **Atualização do tabu:**
+
+    Executa `decrease_ban()`, que decrementa o contador de cada entrada em `list_grid` e libera movimentos cujo banimento chegou a zero, removendo sua marcação em `tabu_grid.`
+
+7. **Atualização do melhor global (intensificação):**
+
+    Se o fitness da solução corrente ficar abaixo de `fitness_best`, atualiza `best_solution` e `fitness_best`.
+
+8. **Critério de parada:**
+
+    Repete os passos de 3 a 7 até alcançar max_iter iterações.
