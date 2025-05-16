@@ -2,6 +2,7 @@
 
 # Sumário
 
+- [Equipe](#equipe)
 - [1. Como é formado o vetor‑solução](#1-como-é-formado-o-vetor‑solução)
 - [2. Função de avaliação (`_fitness`)](#2-função-de-avaliação-_fitness)
 - [3. Método principal (`solve`)](#3-método-principal-solve)
@@ -14,6 +15,14 @@
     - [Funacionamento do Tabu Search (`_ts`)](#funcionamento-do-tabu-search-_ts)
         - [Passos principais do TS implementado](#passos-principais-do-ts-implementado)
     - [Testes](#testes-1)
+
+---
+## Equipe
+
+[![LuisXIV01](https://github.com/LuisXIV01.png?size=100)](https://github.com/LuisXIV01)
+[![ManelHRO](https://github.com/ManelHRO.png?size=100)](https://github.com/ManelHRO)
+
+---
 
 ## 1. Como é formado o vetor‑solução
 
