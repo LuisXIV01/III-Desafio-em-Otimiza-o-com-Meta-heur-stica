@@ -6,8 +6,8 @@ import time
 
 # Configurações
 JSON_PATH    = "responses.json"
-SOLVER_CMD   = ["python3", "src/main.py"]
-CHECKER_CMD  = ["python3", "checker.py"]
+SOLVER_CMD   = ["python", "src/main.py"]
+CHECKER_CMD  = ["python", "checker.py"]
 INPUT_DIR    = "data"
 OUTPUT_DIR   = "output"
 

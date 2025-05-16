@@ -26,7 +26,7 @@ def main(instance_path):
 
     history = solver.history
 
-    fig = go.Figure(
+    """fig = go.Figure(
         data=go.Scatter(
             x=list(range(len(history))),
             y=history,
@@ -43,7 +43,7 @@ def main(instance_path):
 
     out_html = "makespan_history.html"
     fig.write_html(out_html, auto_open=True)
-    print(f"Gráfico interativo salvo em: {out_html}")
+    print(f"Gráfico interativo salvo em: {out_html}")"""
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

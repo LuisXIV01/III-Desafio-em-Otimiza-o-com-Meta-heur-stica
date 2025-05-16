@@ -10,6 +10,10 @@
     - [Operadores Genéticos Usados](#operadores-genéticos-usados)
     - [Critério de Parada](#critério-de-parada)
     - [Testes](#testes)
+- [5. Tabu Search](#5-tabu-search)
+    - [Funacionamento do Tabu Search (`_ts`)](#funcionamento-do-tabu-search-_ts)
+        - [Passos principais do TS implementado](#passos-principais-do-ts-implementado)
+    - [Testes](#testes-1)
 
 ## 1. Como é formado o vetor‑solução
 
@@ -350,11 +354,11 @@ O algoritmo termina ao alcançar o número máximo de gerações (`IT_MAX`) e re
 | `MAX_ITER`      | Nº máximo de iterações              |
 > Esses valores são ajustados conforme o tamanho/complexidade da instância.
 
-### Funcionamento do `TS`
+### Funcionamento do Tabu Search (`_TS`)
 Funcionamento do Tabu Search (tabu_search)
 O Tabu Search (TS) é uma meta-heurística baseada em exploração local, que utiliza memória de curto prazo para evitar ciclos e diversificar a busca por boas soluções.
 
-**Passos principais do TS implementado:**
+#### Passos principais do TS implementado:
 
 1. **Geração da solução inicial:**
 
@@ -401,3 +405,5 @@ O Tabu Search (TS) é uma meta-heurística baseada em exploração local, que ut
 8. **Critério de parada:**
 
     Repete os passos de 3 a 7 até alcançar max_iter iterações.
+
+### Testes
