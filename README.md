@@ -104,7 +104,7 @@ def solve(self):
 
 ---
 
-## 5. Funcionamento do Algoritmo Genético (`_ga`)
+### Funcionamento do Algoritmo Genético (`_ga`)
 
 O Algoritmo Genético (GA) é uma meta-heurística inspirada no processo natural da evolução, buscando soluções melhores ao longo das gerações.
 
@@ -130,21 +130,21 @@ Mantém os melhores indivíduos da geração atual para a próxima, garantindo q
 7. **Repetição:**
 Repete o processo por um número fixo de gerações (`IT_MAX`), buscando melhora contínua.
 
-## 6. Operadores Genéticos Usados
-### Crossover
+### Operadores Genéticos Usados
+#### Crossover
 - Seleciona dois pontos aleatórios no vetor.
 
 - Copia o segmento entre esses pontos do pai 1 para o filho 1, e do pai 2 para o filho 2.
 
 - Preenche as posições restantes do filho com os genes do outro pai, respeitando a quantidade de operações de cada job.
 
-### Mutação
+#### Mutação
 - Com baixa probabilidade (`MUTATION_RATE`), troca duas posições aleatórias no vetor para explorar novas soluções.
 
-## 7. Critério de Parada
+### Critério de Parada
 O algoritmo termina ao alcançar o número máximo de gerações (`IT_MAX`) e retorna o melhor indivíduo encontrado.
 
-## 8. Testes
+### Testes
 
 | Parâmetro       | Significado                         | Valor Padrão |
 | --------------- | ----------------------------------- | ------------ |
@@ -163,7 +163,7 @@ O algoritmo termina ao alcançar o número máximo de gerações (`IT_MAX`) e re
 
 ---
 
-### Testes rodados com todos os casos
+#### Testes rodados com todos os casos
 
 | Instância | Ótimo Esperado | Tempo (s) | Resultado           |
 |-----------|----------------|-----------|---------------------|
