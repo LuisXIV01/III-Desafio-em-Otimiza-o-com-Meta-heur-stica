@@ -126,8 +126,6 @@ def solve(self):
 
 > Esses valores são ajustados conforme o tamanho/complexidade da instância.
 
----
-
 ### Funcionamento do Algoritmo Genético (`_ga`)
 
 O Algoritmo Genético (GA) é uma meta-heurística inspirada no processo natural da evolução, buscando soluções melhores ao longo das gerações.
@@ -184,8 +182,6 @@ O algoritmo termina ao alcançar o número máximo de gerações (`IT_MAX`) e re
 
 ![Convergência do Best Makespan](meta-heuristics%20implementation/GA/image/ta38-50-500.png)
 *Imagem 3: Convergência do Best Makespan do caso `ta38` - (melhor global: 2694)*
-
----
 
 #### Testes rodados com todos os casos
 
@@ -354,7 +350,6 @@ O algoritmo termina ao alcançar o número máximo de gerações (`IT_MAX`) e re
 | ta79      | [None…None]    | 85.87     | ⏱️ Makespan: 8534    |
 | ta80      | [None…None]    | 123.03    | ⏱️ Makespan: 8398    |
 
----
 
 ## 5. Tabu Search
 | Parâmetro       | Significado                         |
